@@ -12,7 +12,7 @@ import {
 
 // ─── NAV LINKS ────────────────────────────────────────
 export const NAV_LINKS = [
-  { label: 'Home',    href: '/' },
+  { label: 'Home',    href: '/home' },
   { label: 'Menu',    href: '/menu' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'About',   href: '/about' },
