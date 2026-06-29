@@ -10,6 +10,15 @@ import {
 
 
 
+import gallery1 from "../assets/images/gallery/gallery1.jpg";
+import gallery2 from "../assets/images/gallery/gallery2.jpg";
+import gallery3 from "../assets/images/gallery/gallery3.jpg";
+import gallery4 from "../assets/images/gallery/gallery4.jpg";
+import gallery5 from "../assets/images/gallery/gallery5.jpg";
+
+
+
+
 // ─── NAV LINKS ────────────────────────────────────────
 export const NAV_LINKS = [
   { label: 'Home',    href: '/restaurants-website-react' },
@@ -69,14 +78,32 @@ export const CRAFT_ITEMS = [
 ];
 
 
-// ─── GALLERY ITEMS ────────────────────────────────────
 export const GALLERY_ITEMS = [
-  { dishClass: 'dish-1', label: 'Paneer Makhani' },
-  { dishClass: 'dish-2', label: "Chef's Special Dal" },
-  { dishClass: 'dish-3', label: 'Signature Starters' },
-  { dishClass: 'dish-4', label: 'Garden Fresh Bowl' },
-  { dishClass: 'dish-5', label: 'Thali Experience' },
+  {
+    image: gallery1,
+    label: "Butter paneer ",
+  },
+  {
+    image: gallery2,
+    label: "Dal Makhani",
+  },
+  {
+    image: gallery3,
+    label: "MOMOS",
+  },
+  {
+    image: gallery4,
+    label: "Green Bowl",
+  },
+  {
+    image: gallery5,
+    label: "Special Thali",
+  },
 ];
+
+
+
+
 
 // ─── TESTIMONIALS ─────────────────────────────────────
 export const TESTIMONIALS = [

@@ -1,6 +1,6 @@
-import SectionTitle from './SectionTitle';
-import { GALLERY_ITEMS } from '../data';
-import './Gallery.css';
+import SectionTitle from "./SectionTitle";
+import { GALLERY_ITEMS } from "../data";
+import "./Gallery.css";
 
 export default function Gallery() {
   return (
@@ -12,9 +12,14 @@ export default function Gallery() {
       />
 
       <div className="gallery-grid fade-in">
-        {GALLERY_ITEMS.map(({ dishClass, label }) => (
+        {GALLERY_ITEMS.map(({ image, label }) => (
           <div className="gallery-item" key={label}>
-            <div className={`gallery-bg ${dishClass}`} />
+            <img
+              src={image}
+              alt={label}
+              className="gallery-image"
+            />
+
             <div className="gallery-overlay">
               <span>{label}</span>
             </div>
