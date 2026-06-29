@@ -11,7 +11,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route element={<MainLayout />}>
-        <Route path="/home"        element={<Home />} />
+        <Route path="/restaurants-website-react"        element={<Home />} />
         <Route path="/menu"    element={<Menu />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/about"   element={<About />} />
