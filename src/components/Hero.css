@@ -1,0 +1,313 @@
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 64px 80px;
+  overflow: hidden;
+}
+
+/* ─── Overlay ────────────────────────────────────────── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(11, 19, 37, 0.92) 40%, rgba(11, 19, 37, 0.3) 100%),
+    linear-gradient(to top, rgba(11, 19, 37, 0.8) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* ─── Scene ──────────────────────────────────────────── */
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #0d1b35 0%, #1a2a50 35%, #0f1e3a 60%, #0B1325 100%);
+}
+
+/* ─── Building ───────────────────────────────────────── */
+.building {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 85%;
+}
+.building-body {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 0;
+  top: 15%;
+  background: linear-gradient(180deg, #2a3a5e 0%, #1e2d4a 60%, #162240 100%);
+  border-radius: 4px 4px 0 0;
+}
+.building-roof {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: -2%;
+  height: 20%;
+  background: linear-gradient(180deg, #1a2840 0%, #243555 100%);
+  clip-path: polygon(2% 100%, 0% 60%, 5% 0%, 98% 10%, 100% 55%, 98% 100%);
+}
+
+/* ─── Windows ────────────────────────────────────────── */
+.window {
+  position: absolute;
+  border-radius: 2px;
+}
+.w1 {
+  width: 80px; height: 100px;
+  background: linear-gradient(135deg, #f0c060 0%, #e8a020 40%, #c87820 100%);
+  top: 25%; left: 20%;
+  box-shadow: 0 0 30px 10px rgba(240, 160, 40, 0.35), inset 0 0 20px rgba(255, 220, 100, 0.3);
+}
+.w2 {
+  width: 65px; height: 90px;
+  background: linear-gradient(135deg, #d4a040 0%, #b87820 50%, #f0c060 100%);
+  top: 28%; left: 42%;
+  box-shadow: 0 0 25px 8px rgba(200, 130, 30, 0.3);
+}
+.w3 {
+  width: 55px; height: 80px;
+  background: linear-gradient(135deg, #e0b040 0%, #c08020 100%);
+  top: 30%; left: 62%;
+  opacity: 0.8;
+  box-shadow: 0 0 20px 6px rgba(200, 120, 20, 0.25);
+}
+
+/* ─── Door ───────────────────────────────────────────── */
+.door {
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  width: 70px; height: 120px;
+  background: linear-gradient(180deg, #c08020 0%, #8b5e10 100%);
+  border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+  box-shadow: 0 0 30px rgba(200, 140, 30, 0.4);
+}
+.door::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px; height: 12px;
+  background: #f0d060;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(240, 200, 60, 0.8);
+}
+
+/* ─── Awning ─────────────────────────────────────────── */
+.awning {
+  position: absolute;
+  bottom: 40%;
+  left: 5%;
+  right: -5%;
+  height: 28px;
+  background: repeating-linear-gradient(
+    90deg,
+    #1a2840 0px, #1a2840 18px,
+    #c8981e 18px, #c8981e 36px
+  );
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Fairy Lights ───────────────────────────────────── */
+.fairy-lights {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  pointer-events: none;
+}
+.fl-strand {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.fl-strand::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  background:
+    radial-gradient(circle 3px at  8%  0px, #f0e060 0%, transparent 60%),
+    radial-gradient(circle 3px at 16% 20px, #f0e060 0%, transparent 60%),
+    radial-gradient(circle 3px at 24%  5px, #f0d050 0%, transparent 60%),
+    radial-gradient(circle 3px at 32% 25px, #f0e060 0%, transparent 60%),
+    radial-gradient(circle 3px at 40%  8px, #f0e060 0%, transparent 60%),
+    radial-gradient(circle 3px at 48% 22px, #f0d050 0%, transparent 60%),
+    radial-gradient(circle 3px at 56%  3px, #f0e060 0%, transparent 60%),
+    radial-gradient(circle 3px at 64% 28px, #f0e060 0%, transparent 60%),
+    radial-gradient(circle 3px at 72% 10px, #f0d050 0%, transparent 60%),
+    radial-gradient(circle 3px at 80% 20px, #f0e060 0%, transparent 60%),
+    radial-gradient(circle 3px at 88%  4px, #f0e060 0%, transparent 60%),
+    radial-gradient(circle 3px at 96% 26px, #f0d050 0%, transparent 60%);
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+/* ─── Stars ──────────────────────────────────────────── */
+.stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.stars::before,
+.stars::after {
+  content: '';
+  position: absolute;
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    80px 30px 0 0 rgba(255,255,255,0.7),
+    140px 80px 0 0 rgba(255,255,255,0.5),
+    200px 20px 0 0 rgba(255,255,255,0.6),
+    260px 60px 0 0 rgba(255,255,255,0.4),
+    320px 10px 0 0 rgba(255,255,255,0.7),
+    380px 45px 0 0 rgba(255,255,255,0.5),
+    420px 15px 0 0 rgba(255,255,255,0.6),
+    480px 70px 0 0 rgba(255,255,255,0.4),
+    540px 25px 0 0 rgba(255,255,255,0.7),
+    600px 55px 0 0 rgba(255,255,255,0.5),
+    650px  8px 0 0 rgba(255,255,255,0.6),
+    700px 40px 0 0 rgba(255,255,255,0.4),
+    750px 18px 0 0 rgba(255,255,255,0.7),
+    800px 65px 0 0 rgba(255,255,255,0.5),
+    850px 32px 0 0 rgba(255,255,255,0.6),
+    900px 12px 0 0 rgba(255,255,255,0.5),
+    950px 48px 0 0 rgba(255,255,255,0.7),
+    1000px 22px 0 0 rgba(255,255,255,0.4),
+    1050px 75px 0 0 rgba(255,255,255,0.6),
+    1100px 35px 0 0 rgba(255,255,255,0.5);
+}
+.stars::after {
+  top: 80px;
+  box-shadow:
+    60px 20px 0 0 rgba(255,255,255,0.5),
+    120px 60px 0 0 rgba(255,255,255,0.7),
+    180px 10px 0 0 rgba(255,255,255,0.4),
+    240px 50px 0 0 rgba(255,255,255,0.6),
+    300px 30px 0 0 rgba(255,255,255,0.5),
+    360px 75px 0 0 rgba(255,255,255,0.4),
+    440px  5px 0 0 rgba(255,255,255,0.7),
+    500px 40px 0 0 rgba(255,255,255,0.5),
+    560px 20px 0 0 rgba(255,255,255,0.6),
+    620px 65px 0 0 rgba(255,255,255,0.4),
+    680px 15px 0 0 rgba(255,255,255,0.7),
+    740px 55px 0 0 rgba(255,255,255,0.5),
+    800px 28px 0 0 rgba(255,255,255,0.6),
+    860px 70px 0 0 rgba(255,255,255,0.4),
+    920px 38px 0 0 rgba(255,255,255,0.7),
+    980px  8px 0 0 rgba(255,255,255,0.5),
+    1040px 58px 0 0 rgba(255,255,255,0.6),
+    1100px 25px 0 0 rgba(255,255,255,0.4);
+}
+
+/* ─── Plants ─────────────────────────────────────────── */
+.plant {
+  position: absolute;
+  bottom: 0;
+}
+.plant::before {
+  content: '🌿';
+  font-size: 28px;
+}
+.p1 { left: 5%; }
+.p2 { left: 28%; }
+.p3 { right: 8%; }
+
+/* ─── Content ────────────────────────────────────────── */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(40px, 5vw, 70px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.hero-title .gold {
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cream);
+  max-width: 420px;
+  margin-bottom: 36px;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─── Scroll Hint ────────────────────────────────────── */
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.scroll-hint span {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+}
+.scroll-dot {
+  width: 1.5px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero {
+    padding: 0 28px 72px;
+    min-height: 90vh;
+  }
+}
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 32px;
+  }
+}

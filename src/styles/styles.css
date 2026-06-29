@@ -1,0 +1,160 @@
+/* ─── CSS VARIABLES ─────────────────────────────────── */
+:root {
+  --navy: #0B1325;
+  --navy-mid: #1C2541;
+  --gold: #D4AF37;
+  --gold-light: #f0d060;
+  --cream: #F4E1D2;
+  --white: #FFFFFF;
+  --gold-dim: rgba(212, 175, 55, 0.15);
+  --gold-border: rgba(212, 175, 55, 0.3);
+}
+
+/* ─── RESET ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── BUTTONS ───────────────────────────────────────── */
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: 2px solid var(--gold);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-gold:hover {
+  background: transparent;
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: 1.5px solid rgba(244, 225, 210, 0.4);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.25s, color 0.25s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-outline:hover {
+  border-color: var(--cream);
+  color: var(--white);
+}
+
+/* ─── SECTION COMMONS ───────────────────────────────── */
+section {
+  padding: 100px 64px;
+}
+
+.section-label {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 700;
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+.section-sub {
+  text-align: center;
+  color: rgba(244, 225, 210, 0.6);
+  font-size: 14px;
+  max-width: 500px;
+  margin: 0 auto 64px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ─── GOLD DIVIDER ──────────────────────────────────── */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto 48px;
+  max-width: 300px;
+}
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-border);
+}
+.gold-divider-icon {
+  color: var(--gold);
+  font-size: 16px;
+}
+
+/* ─── SCROLL FADE IN ────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── ANIMATIONS ────────────────────────────────────── */
+@keyframes twinkle {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 0.9; }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 900px) {
+  section {
+    padding: 72px 28px;
+  }
+}

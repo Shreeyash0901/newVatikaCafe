@@ -1,0 +1,6 @@
+/* App-level overrides and compositions go here */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
