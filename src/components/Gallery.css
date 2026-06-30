@@ -1,6 +1,6 @@
 .gallery-section {
-  background: var(--navy-mid);
-  border-top: 1px solid var(--gold-border);
+  background: var(--bg-light);
+  border-top: 1px solid var(--border);
 }
 
 .gallery-grid {
@@ -15,9 +15,10 @@
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border-radius: 2px;
-  border: 1px solid var(--gold-border);
-  background: var(--navy);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
   cursor: pointer;
 }
 
@@ -39,10 +40,13 @@
   transform: scale(1.07);
 }
 
+/* Overlay stays dark regardless of site theme — it sits on top of a
+   photograph, not the page background, so it needs strong contrast
+   for the caption text to stay readable. */
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(11, 19, 37, 0.85) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(20, 14, 8, 0.82) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
@@ -57,7 +61,7 @@
 .gallery-overlay span {
   font-family: "Cinzel", serif;
   font-size: 13px;
-  color: var(--gold);
+  color: var(--gold-light);
   letter-spacing: 0.06em;
 }
 

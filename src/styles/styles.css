@@ -1,20 +1,53 @@
-/* ─── CSS VARIABLES ─────────────────────────────────── */
+/* ==========================================================
+   CHAMPAGNE LUXURY THEME
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================
+   ROOT VARIABLES
+   ========================================================== */
+
 :root {
-  --navy: #0B1325;
-  --navy-mid: #1C2541;
-  --gold: #D4AF37;
-  --gold-light: #f0d060;
-  --cream: #F4E1D2;
-  --white: #FFFFFF;
-  --gold-dim: rgba(212, 175, 55, 0.15);
-  --gold-border: rgba(212, 175, 55, 0.3);
+
+  /* Backgrounds */
+  --bg: #FDFBF7;
+  --bg-light: #F7F1E8;
+  --bg-card: #FFFFFF;
+  --bg-hover: #FCF6EC;
+
+  /* Gold */
+  --gold: #C9A84C;
+  --gold-light: #E7D39A;
+  --gold-dark: #9C7A2B;
+
+  /* Text */
+  --text: #2F2A25;
+  --text-light: #6B6257;
+  --text-muted: #8F8578;
+  --heading: #2A2116;
+
+  /* Borders */
+  --border: #E6D8B7;
+  --border-light: #F0E7D5;
+
+  /* Shadow */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  /* Radius */
+  --radius: 14px;
 }
 
-/* ─── RESET ─────────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -22,229 +55,242 @@ html {
 }
 
 body {
-  background: var(--navy);
-  color: var(--white);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(180deg, #FDFBF7 0%, #F7F1E8 100%);
+  color: var(--text);
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-/* ─── BUTTONS ───────────────────────────────────────── */
-.btn-gold {
-  background: var(--gold);
-  color: var(--navy);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+/* ==========================================================
+   TYPOGRAPHY
+   ========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Cinzel", serif;
+  color: var(--heading);
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 14px 32px;
-  border: 2px solid var(--gold);
-  border-radius: 2px;
-  cursor: pointer;
-  transition: background 0.25s, color 0.25s, transform 0.2s;
-  text-decoration: none;
-  display: inline-block;
-}
-.btn-gold:hover {
-  background: transparent;
-  color: var(--gold);
-  transform: translateY(-2px);
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--cream);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 14px 32px;
-  border: 1.5px solid rgba(244, 225, 210, 0.4);
-  border-radius: 2px;
-  cursor: pointer;
-  transition: border-color 0.25s, color 0.25s;
-  text-decoration: none;
-  display: inline-block;
-}
-.btn-outline:hover {
-  border-color: var(--cream);
-  color: var(--white);
+p {
+  color: var(--text-light);
 }
 
-/* ─── SECTION COMMONS ───────────────────────────────── */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================================
+   SECTION
+   ========================================================== */
+
 section {
-  padding: 100px 64px;
+  padding: 100px 80px;
 }
 
 .section-label {
   text-align: center;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.24em;
+  color: var(--gold-dark);
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 .section-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(24px, 3vw, 38px);
-  font-weight: 700;
-  color: var(--cream);
   text-align: center;
+  font-size: clamp(34px, 5vw, 52px);
   margin-bottom: 16px;
-  letter-spacing: 0.04em;
 }
 
 .section-sub {
+  max-width: 650px;
+  margin: auto;
   text-align: center;
-  color: rgba(244, 225, 210, 0.6);
-  font-size: 14px;
-  max-width: 500px;
-  margin: 0 auto 64px;
+  color: var(--text-muted);
+  font-size: 16px;
   line-height: 1.8;
-  font-weight: 300;
 }
 
-/* ─── GOLD DIVIDER ──────────────────────────────────── */
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 34px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.35s;
+  box-shadow: 0 10px 25px rgba(201, 168, 76, 0.35);
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px rgba(201, 168, 76, 0.45);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 34px;
+  border: 2px solid var(--gold);
+  color: var(--gold-dark);
+  background: transparent;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: white;
+}
+
+/* ==========================================================
+   CARD
+   ========================================================== */
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: .35s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+
+/* ==========================================================
+   DIVIDER
+   ========================================================== */
+
 .gold-divider {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin: 0 auto 48px;
-  max-width: 300px;
-}
-.gold-divider::before,
-.gold-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--gold-border);
-}
-.gold-divider-icon {
-  color: var(--gold);
-  font-size: 16px;
+  gap: 18px;
+  max-width: 280px;
+  margin: 35px auto;
 }
 
-/* ─── SCROLL FADE IN ────────────────────────────────── */
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.gold-divider-icon {
+  color: var(--gold);
+  font-size: 20px;
+}
+
+/* ==========================================================
+   ANIMATION
+   ========================================================== */
+
 .fade-in {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(35px);
+  transition: all .8s ease;
 }
+
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ─── ANIMATIONS ────────────────────────────────────── */
-@keyframes twinkle {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 0.9; }
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; }
-  50%       { opacity: 1; }
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
 }
 
-/* ─── RESPONSIVE ────────────────────────────────────── */
-@media (max-width: 900px) {
-  section {
-    padding: 72px 28px;
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* ==========================================================
+   KEYFRAMES
+   ========================================================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-
-
-
-
-
-
-
-
-
-/* Global theme — color variables, fonts, resets, shared keyframes.
-   Import this once at your app root (e.g. in main.jsx). */
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
-
-:root {
-  --color-bg: #081422;
-  --color-bg-alt: #0a1825;
-  --color-bg-card: #0f2236;
-  --color-bg-card-alt: #0a1a2a;
-  --color-bg-footer: #060e16;
-  --color-gold: #c9a84c;
-  --color-gold-dark: #a07830;
-  --color-gold-light: #f5e6b8;
-  --color-text: #e8d5a0;
-  --color-text-dim: #b8a888;
-  --color-text-muted: #7a6a4a;
-  --color-text-faint: #6a5a3a;
-  --color-text-darkest: #4a3a20;
-
-  --font-display: 'Playfair Display', serif;
-  --font-script: 'Cormorant Garamond', serif;
-  --font-body: 'Inter', sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-}
-
-button {
-  font-family: inherit;
-}
-
-a {
-  text-decoration: none;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(201, 168, 76, 0.27);
-  border-radius: 3px;
-}
-
-/* Shared keyframes used across components */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes goldGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.2); }
-  50% { box-shadow: 0 0 40px rgba(201, 168, 76, 0.45); }
-}
-
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 992px) {
+  section {
+    padding: 80px 40px;
+  }
 }
 
+@media (max-width: 768px) {
+  section {
+    padding: 70px 20px;
+  }
 
+  .section-title {
+    font-size: 34px;
+  }
 
-
+  .btn-gold,
+  .btn-outline {
+    width: 100%;
+  }
+}

@@ -1,7 +1,7 @@
 .craft-section {
-  background: var(--navy-mid);
-  border-top: 1px solid var(--gold-border);
-  border-bottom: 1px solid var(--gold-border);
+  background: var(--bg-light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .craft-grid {
@@ -20,10 +20,11 @@
 
   text-align: center;
 
-  border: 1px solid var(--gold-border);
-  border-radius: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 
-  background: var(--gold-dim);
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
 
   transition:
     transform 0.3s ease,
@@ -33,11 +34,10 @@
 
 .craft-item:hover {
   transform: translateY(-4px);
-
   border-color: var(--gold);
-
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
 }
+
 .craft-item::before {
   content: '';
   position: absolute;
@@ -49,10 +49,7 @@
   background: var(--gold);
   transition: width 0.3s;
 }
-.craft-item:hover {
-  border-color: var(--gold);
-  transform: translateY(-4px);
-}
+
 .craft-item:hover::before {
   width: 100%;
 }
@@ -70,9 +67,9 @@
   border: 1.5px solid var(--gold);
   border-radius: 50%;
 
-  background: var(--gold-dim);
+  background: var(--bg-light);
 
-  color: var(--gold);
+  color: var(--gold-dark);
 
   font-size: 22px;
 
@@ -83,21 +80,23 @@
 
 .craft-item:hover .craft-icon {
   transform: scale(1.08);
+  background: var(--gold-light);
 }
 
 .craft-item h3 {
   font-family: 'Cinzel', serif;
   font-size: 15px;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--heading);
   margin-bottom: 10px;
   letter-spacing: 0.04em;
 }
+
 .craft-item p {
   font-size: 13px;
-  color: rgba(244, 225, 210, 0.65);
+  color: var(--text-muted);
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* ─── Responsive ─────────────────────────────────────── */

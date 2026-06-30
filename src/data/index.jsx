@@ -21,7 +21,7 @@ import gallery5 from "../assets/images/gallery/gallery5.jpg";
 
 // ─── NAV LINKS ────────────────────────────────────────
 export const NAV_LINKS = [
-  { label: 'Home',    href: '/restaurants-website-react' },
+  { label: 'Home',    href: '/' },
   { label: 'Menu',    href: '/menu' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'About',   href: '/about' },

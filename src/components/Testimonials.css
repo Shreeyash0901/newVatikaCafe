@@ -1,7 +1,7 @@
 .testimonials-section {
-  background: var(--navy);
-  border-top: 1px solid var(--gold-border);
-  border-bottom: 1px solid var(--gold-border);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .testimonial-slider {
@@ -13,9 +13,10 @@
 .testimonial-card {
   text-align: center;
   padding: 48px;
-  border: 1px solid var(--gold-border);
-  border-radius: 4px;
-  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
   position: relative;
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 1;
@@ -35,7 +36,7 @@
   font-size: 80px;
   line-height: 1;
   color: var(--gold);
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .testimonial-stars {
@@ -49,22 +50,22 @@
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 17px;
-  color: var(--cream);
+  color: var(--text);
   line-height: 1.85;
   margin-bottom: 28px;
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
 .testimonial-author {
   font-family: 'Cinzel', serif;
   font-size: 13px;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--gold-dark);
   letter-spacing: 0.1em;
 }
 .testimonial-role {
   font-size: 11px;
-  color: rgba(244, 225, 210, 0.5);
+  color: var(--text-muted);
   letter-spacing: 0.1em;
   margin-top: 4px;
 }
@@ -74,9 +75,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--gold-dim);
-  border: 1.5px solid var(--gold-border);
-  color: var(--gold);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--gold-dark);
   font-size: 16px;
   width: 42px;
   height: 42px;
@@ -85,11 +86,12 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.25s, border-color 0.25s;
+  box-shadow: var(--shadow);
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
 }
 .testimonial-nav:hover {
-  background: var(--gold);
-  color: var(--navy);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #ffffff;
   border-color: var(--gold);
 }
 .t-prev { left: -60px; }
@@ -106,7 +108,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--gold-border);
+  background: var(--border);
   cursor: pointer;
   border: none;
   transition: background 0.25s, transform 0.25s;

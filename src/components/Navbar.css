@@ -3,9 +3,9 @@
   top: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(11, 19, 37, 0.92);
+  background: rgba(253, 251, 247, 0.92); /* var(--bg) translucent */
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--gold-border);
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,7 +30,7 @@
 .nav-logo-icon {
   width: 44px;
   height: 44px;
-  background: var(--gold-dim);
+  background: var(--bg-light);
   border: 1.5px solid var(--gold);
   border-radius: 50%;
   display: flex;
@@ -42,7 +42,7 @@
   font-family: 'Cinzel', serif;
   font-size: 14px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--gold-dark);
   line-height: 1.2;
   letter-spacing: 0.06em;
 }
@@ -50,7 +50,7 @@
   display: block;
   font-size: 10px;
   font-weight: 400;
-  color: var(--cream);
+  color: var(--text-muted);
   letter-spacing: 0.18em;
 }
 
@@ -58,33 +58,34 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 38px;
   list-style: none;
 }
 .nav-links a {
-  color: var(--cream);
+  color: var(--heading);
   text-decoration: none;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: color 0.25s;
 }
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--gold);
+  color: var(--gold-dark);
 }
 .nav-cta {
   background: transparent;
   border: 1.5px solid var(--gold);
-  color: var(--gold) !important;
+  color: var(--gold-dark) !important;
   padding: 8px 20px;
-  border-radius: 2px;
-  transition: background 0.25s, color 0.25s;
+  border-radius: 50px;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
 }
 .nav-cta:hover {
-  background: var(--gold) !important;
-  color: var(--navy) !important;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.35);
 }
 
 /* ─── Hamburger ─────────────────────────────────────── */
@@ -101,7 +102,7 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--gold);
+  background: var(--gold-dark);
   border-radius: 2px;
   transition: 0.3s;
 }
@@ -117,8 +118,4 @@
   .nav-hamburger {
     display: flex;
   }
-
-
-  
 }
-

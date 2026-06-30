@@ -7,12 +7,13 @@ import styles from "../pages/Menu.module.css";
 /**
  * <Menu />
  * Fully self-contained, drop-in restaurant menu component.
+ * Now bilingual — every label and item name is shown as "English / हिंदी".
  *
  * Props (all optional):
  *  - data:      menu data object, same shape as menuData.js (default: menuData)
  *  - tabs:      tab grouping config, same shape as menuTabs (default: menuTabs)
  *  - eyebrow:   small italic label above the title (default: "Our Culinary Collection")
- *  - title:     main heading text (default: "The Menu")
+ *  - title:     main heading, can be a string or { en, hi } object
  *  - showTabs:  whether to render the tab bar (default: true)
  *
  * Usage:
@@ -20,13 +21,13 @@ import styles from "../pages/Menu.module.css";
  *   import "./styles/theme.css"; // once, at app root
  *
  *   <Menu />
- *   <Menu data={myMenuData} tabs={myTabs} title="What We Serve" />
+ *   <Menu data={myMenuData} tabs={myTabs} title={{ en: "What We Serve", hi: "हमारी सेवाएं" }} />
  */
 export default function Menu({
   data = menuData,
   tabs = menuTabs,
   eyebrow = "Our Culinary Collection",
-  title = "The Menu",
+  title = { en: "The Menu", hi: "मेन्यू" },
   showTabs = true,
 }) {
   const categoryKeys = Object.keys(data);
@@ -49,11 +50,17 @@ export default function Menu({
     setActiveCat((current) => (current === key ? null : key));
   }
 
+  const titleEn = typeof title === "string" ? title : title.en;
+  const titleHi = typeof title === "string" ? null : title.hi;
+
   return (
     <section className={styles.menuSection}>
       <div className={styles.heading}>
         <p className={styles.eyebrow}>{eyebrow}</p>
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={styles.title}>
+          {titleEn}
+          {titleHi && <span className={styles.titleHi}> / {titleHi}</span>}
+        </h2>
         <GoldDivider />
       </div>
 
@@ -63,7 +70,7 @@ export default function Menu({
             className={`${styles.tabButton} ${activeTab === "all" && !activeCat ? styles.active : ""}`}
             onClick={() => handleTabClick("all")}
           >
-            ALL ITEMS
+            ALL ITEMS / सभी आइटम
           </button>
           {tabs.map((tab) => (
             <button
@@ -71,7 +78,7 @@ export default function Menu({
               className={`${styles.tabButton} ${activeTab === tab.key && !activeCat ? styles.active : ""}`}
               onClick={() => handleTabClick(tab.key)}
             >
-              {tab.label.toUpperCase()}
+              {tab.label.en.toUpperCase()} / {tab.label.hi}
             </button>
           ))}
         </div>
@@ -87,7 +94,7 @@ export default function Menu({
               className={`${styles.pill} ${isActive ? styles.active : ""}`}
               onClick={() => handlePillClick(key)}
             >
-              {cat.icon} {cat.label}
+              {cat.icon} {cat.label.en} / {cat.label.hi}
             </button>
           );
         })}
