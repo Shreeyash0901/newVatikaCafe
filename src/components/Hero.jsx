@@ -1,5 +1,6 @@
 import "./Hero.css";
-
+import { Link } from "react-router-dom";
+import { NAV_LINKS } from '../data';
 export default function Hero() {
   return (
     <section id="home" className="hero">
@@ -27,13 +28,16 @@ export default function Hero() {
 
         <div className="hero-buttons">
 
-          <a href="#menu" className="btn-primary">
-            Explore Menu
-          </a>
+       
+  <Link to="/menu" className="btn-primary">
+    Explore Menu
+  </Link>
 
-          <a href="#contact" className="btn-secondary">
+          
+
+          <Link to="/contact" className="btn-primary">
             Book Table
-          </a>
+          </Link>
 
         </div>
 
