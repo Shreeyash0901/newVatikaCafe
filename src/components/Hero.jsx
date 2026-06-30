@@ -1,61 +1,72 @@
-import Button from './Button';
-import './Hero.css';
+import "./Hero.css";
 
 export default function Hero() {
   return (
-    <section className="hero" id="home">
-      {/* CSS scene — stars, building, plants, fairy lights */}
-      <div className="hero-scene">
-        <div className="stars" />
-        <div className="building">
-          <div className="building-roof" />
-          <div className="building-body">
-            <div className="window w1" />
-            <div className="window w2" />
-            <div className="window w3" />
-            <div className="door" />
-            <div className="awning" />
-          </div>
-        </div>
-        <div className="plant p1" />
-        <div className="plant p2" />
-        <div className="plant p3" />
-        <div className="fairy-lights">
-          <div className="fl-strand" />
-        </div>
-      </div>
+    <section id="home" className="hero">
 
-      {/* Gradient overlay */}
-      <div className="hero-bg" />
+      <div className="hero-overlay"></div>
 
-      {/* Content */}
       <div className="hero-content">
-        <div className="hero-eyebrow">Welcome to New Vatika Café</div>
 
-        <h1 className="hero-title">
-          Experience <span className="gold">Delicious</span>
-          <br />
-          Dishes, Crafted
-          <br />
-          with Care.
-        </h1>
-
-        <p className="hero-sub">
-          An elegant ambiance where every dish tells a story — from slow-cooked curries to
-          signature starters, all made with love.
+        <p className="hero-subtitle">
+          Welcome To
         </p>
 
-        <div className="hero-actions">
-          <Button href="#craft" variant="gold">View Menu</Button>
-          <Button href="#gallery" variant="outline">Gallery</Button>
+        <h1 className="hero-title">
+          New Vatika
+        </h1>
+
+        <h2 className="hero-title-outline">
+          Café
+        </h2>
+
+        <p className="hero-description">
+          Experience handcrafted flavours, premium ambience,
+          and unforgettable moments with every bite.
+        </p>
+
+        <div className="hero-buttons">
+
+          <a href="#menu" className="btn-primary">
+            Explore Menu
+          </a>
+
+          <a href="#contact" className="btn-secondary">
+            Book Table
+          </a>
+
         </div>
+
+        <div className="hero-stats">
+
+          <div className="stat">
+            <h3>100+</h3>
+            <p>Dishes</p>
+          </div>
+
+          <div className="stat">
+            <h3>100%</h3>
+            <p>Vegetarian</p>
+          </div>
+
+          <div className="stat">
+            <h3>5★</h3>
+            <p>Experience</p>
+          </div>
+
+          <div className="stat">
+            <h3>₹50+</h3>
+            <p>Starting Price</p>
+          </div>
+
+        </div>
+
       </div>
 
-      {/* Scroll hint */}
-      <div className="scroll-hint">
-        <span>Scroll</span>
-        <div className="scroll-dot" />
+      <div className="scroll-down">
+        Scroll
       </div>
+
     </section>
   );
 }

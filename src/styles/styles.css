@@ -158,3 +158,93 @@ section {
     padding: 72px 28px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+/* Global theme — color variables, fonts, resets, shared keyframes.
+   Import this once at your app root (e.g. in main.jsx). */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --color-bg: #081422;
+  --color-bg-alt: #0a1825;
+  --color-bg-card: #0f2236;
+  --color-bg-card-alt: #0a1a2a;
+  --color-bg-footer: #060e16;
+  --color-gold: #c9a84c;
+  --color-gold-dark: #a07830;
+  --color-gold-light: #f5e6b8;
+  --color-text: #e8d5a0;
+  --color-text-dim: #b8a888;
+  --color-text-muted: #7a6a4a;
+  --color-text-faint: #6a5a3a;
+  --color-text-darkest: #4a3a20;
+
+  --font-display: 'Playfair Display', serif;
+  --font-script: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.27);
+  border-radius: 3px;
+}
+
+/* Shared keyframes used across components */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes goldGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(201, 168, 76, 0.45); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+
