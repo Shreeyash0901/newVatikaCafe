@@ -9,11 +9,9 @@ export default function Footer() {
         {/* Brand */}
         <div className="footer-brand">
           <div className="footer-logo">🍃 New Vatika Café</div>
-          <div className="footer-tagline">Crafted with Care</div>
+          <div className="footer-tagline">Developed by shree ❤️</div>
           <p>
-            Adba Slhoos Slreon Road, 5, 12 PM to 9 PM, Nava Miots, Hingoli. An elegant
-            destination for fine vegetarian cuisine in Maharashtra.
-          </p>
+            New mondha, Infront of Hanuman Mandir, Bhatt Colony, Siddharth Nagar, Hingoli, Maharashtra 431513</p>
           <div className="footer-social">
             {FOOTER_SOCIALS.map(({ icon, label, href }) => (
               <a key={label} className="social-icon" href={href} aria-label={label}>
@@ -61,7 +59,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>Designed with care · Copyright © 2025 New Vatika Café. All rights reserved.</p>
+        <p>Designed And Developed by Shreeyassh 💛· Copyright © 2026 New Vatika Café. All rights reserved.</p>
         <div className="footer-bottom-links">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>

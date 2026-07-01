@@ -1,23 +1,41 @@
 import SectionTitle from '../components/SectionTitle';
+import '../pages/About.css';
 
 export default function About() {
   return (
-    <section style={{ paddingTop: '140px', background: 'var(--navy)', minHeight: '60vh' }}>
+    <section className="about-section">
       <SectionTitle
         label="Our Story"
         title="About New Vatika Café"
-        sub="Established in 2020, New Vatika Café is a labour of love rooted in the heart of Hingoli, Maharashtra."
+        sub="Established in 2026"
       />
-      <div style={{ maxWidth: '700px', margin: '0 auto', color: 'rgba(244,225,210,0.75)', lineHeight: 1.9, fontWeight: 300 }}>
-        <p style={{ marginBottom: '24px' }}>
-          We believe that great food starts with honest ingredients, unhurried preparation, and an
-          environment that feels like home. Every dish on our menu carries a piece of that
-          philosophy — from the slow-simmered dal to our signature paneer makhani.
-        </p>
+
+      <div className="about-divider" />
+
+      <div className="about-content">
         <p>
-          Our kitchen is entirely vegetarian, drawing on both classic Maharashtrian flavours and
-          pan-Indian traditions. We are proud to serve our community and welcome guests who are
-          just passing through. Pull up a chair — every visit is a story we want to be part of.
+          Established in 2026, New Vatika Café is a modern vegetarian café in
+          the heart of Hingoli, Maharashtra, created with one simple goal —
+          to serve delicious food, refreshing beverages, and memorable
+          experiences in a warm and welcoming atmosphere.
+        </p>
+
+        <p>
+          Our menu brings together a wide variety of flavors under one roof.
+          Whether you're craving spicy Chinese dishes, cheesy pizzas, juicy
+          burgers, crispy sandwiches, creamy pasta, flavorful momos, or
+          comforting Maggi, there's something for everyone. We also serve
+          handcrafted mocktails, refreshing cold coffees, premium shakes, and
+          a selection of beverages to perfectly complement your meal.
+        </p>
+
+        <p>
+          Every dish is prepared using fresh ingredients, quality vegetables,
+          and carefully selected seasonings to ensure great taste and
+          consistent quality. From our signature Vatika Special Pizza, Vatika
+          Special Burger, Vatika Special Pasta, and Vatika Special Rice to
+          our delicious Chinese specialties and indulgent desserts and
+          drinks, every item is made with care and attention to detail.
         </p>
       </div>
     </section>

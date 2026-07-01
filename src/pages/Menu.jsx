@@ -27,7 +27,7 @@ export default function Menu({
   data = menuData,
   tabs = menuTabs,
   eyebrow = "Our Culinary Collection",
-  title = { en: "The Menu", hi: "मेन्यू" },
+  title = { en: "The Menu" },
   showTabs = true,
 }) {
   const categoryKeys = Object.keys(data);
@@ -70,7 +70,7 @@ export default function Menu({
             className={`${styles.tabButton} ${activeTab === "all" && !activeCat ? styles.active : ""}`}
             onClick={() => handleTabClick("all")}
           >
-            ALL ITEMS / सभी आइटम
+            ALL ITEMS सभी आइटम
           </button>
           {tabs.map((tab) => (
             <button
@@ -78,27 +78,28 @@ export default function Menu({
               className={`${styles.tabButton} ${activeTab === tab.key && !activeCat ? styles.active : ""}`}
               onClick={() => handleTabClick(tab.key)}
             >
-              {tab.label.en.toUpperCase()} / {tab.label.hi}
+              {tab.label.en.toUpperCase()}  {tab.label.hi}
             </button>
           ))}
         </div>
       )}
 
       <div className={styles.pillRow}>
-        {tabCats.map((key) => {
-          const cat = data[key];
-          const isActive = activeCat === key;
-          return (
-            <button
-              key={key}
-              className={`${styles.pill} ${isActive ? styles.active : ""}`}
-              onClick={() => handlePillClick(key)}
-            >
-              {cat.icon} {cat.label.en} / {cat.label.hi}
-            </button>
-          );
-        })}
-      </div>
+  {tabCats.map((key) => {
+    const cat = data[key];
+    const isActive = activeCat === key;
+    return (
+      <button
+        key={key}
+        className={`${styles.pill} ${isActive ? styles.active : ""}`}
+        onClick={() => handlePillClick(key)}
+      >
+        <span className={styles.pillIconWrap}>{cat.icon}</span>
+        <span>{cat.label.en}</span>
+      </button>
+    );
+  })}
+</div>
 
       <div className={styles.menuGrid}>
         {visibleCats.map((key) => (

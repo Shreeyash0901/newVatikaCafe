@@ -10,11 +10,11 @@ import {
 
 
 
-import gallery1 from "../assets/images/gallery/gallery1.jpg";
-import gallery2 from "../assets/images/gallery/gallery2.jpg";
-import gallery3 from "../assets/images/gallery/gallery3.jpg";
-import gallery4 from "../assets/images/gallery/gallery4.jpg";
-import gallery5 from "../assets/images/gallery/gallery5.jpg";
+import gallery1 from "../assets/images/gallery/gallery1.webp";
+import gallery2 from "../assets/images/gallery/gallery2.webp";
+import gallery3 from "../assets/images/gallery/gallery3.webp";
+import gallery4 from "../assets/images/gallery/gallery4.webp";
+import gallery5 from "../assets/images/gallery/gallery5.webp";
 
 
 
