@@ -1,4 +1,5 @@
 import styles from "../pages/Menu.module.css";
+import AddToOrderButton from "./AddToOrderButton";
 
 /**
  * <MenuCategoryCard />
@@ -15,6 +16,21 @@ import styles from "../pages/Menu.module.css";
  *    ],
  *  }
  */
+
+// price strings look like "₹140" or "₹100/₹120" — pull the first number out.
+function parsePrice(priceStr) {
+  const match = String(priceStr).match(/\d+(\.\d+)?/);
+  return match ? parseFloat(match[0]) : 0;
+}
+
+function slugify(name) {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 export default function MenuCategoryCard({ category }) {
   if (!category) return null;
   const { icon, label, items } = category;
@@ -38,18 +54,29 @@ export default function MenuCategoryCard({ category }) {
       </div>
       <div className={styles.cardRule} />
 
-      {items.map((item, idx) => (
-        <div className={styles.item} key={idx}>
-          <div className={styles.itemLeft}>
-            <span className={styles.itemDot} />
-            <div>
-              <span className={styles.itemName}>{item.name.en}</span>
-              <p className={styles.itemNameHi}>{item.name.hi}</p>
+      {items.map((item, idx) => {
+        const cartItem = {
+          id: slugify(item.name.en),
+          nameEn: item.name.en,
+          price: parsePrice(item.price),
+        };
+
+        return (
+          <div className={styles.item} key={idx}>
+            <div className={styles.itemLeft}>
+              <span className={styles.itemDot} />
+              <div>
+                <span className={styles.itemName}>{item.name.en}</span>
+                <p className={styles.itemNameHi}>{item.name.hi}</p>
+              </div>
+            </div>
+            <div className={styles.itemRight}>
+              <span className={styles.itemPrice}>{item.price}</span>
+              <AddToOrderButton item={cartItem} />
             </div>
           </div>
-          <span className={styles.itemPrice}>{item.price}</span>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

@@ -340,3 +340,11 @@
   color: var(--text-muted);
   margin-top: 1px;
 }
+
+
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ 
