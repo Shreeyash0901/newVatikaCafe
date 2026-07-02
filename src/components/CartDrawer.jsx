@@ -102,7 +102,7 @@ export default function CartDrawer() {
                   />
                   <textarea
                     name="note"
-                    placeholder="Any notes (optional)"
+                    placeholder="Address or special instructions (optional)"
                     value={customer.note}
                     onChange={handleChange}
                     rows={2}

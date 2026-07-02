@@ -3,10 +3,11 @@ import AddToOrderButton from "./AddToOrderButton";
 
 /**
  * <MenuCategoryCard />
- * Renders one menu category card with bilingual (English / Hindi)
- * title and item names. Expects `category` in the shape produced by
- * data/menuData.js, e.g.:
+ * Renders one menu category as a colored-header block with dashed item
+ * rows — magazine/menu-board style. Category filtering (tabs + pills)
+ * lives entirely in Menu.jsx and is untouched by this component.
  *
+ * Expects `category` in the shape from data/menuData.js:
  *  {
  *    icon: "🍜",
  *    label: { en: "NOODLES", hi: "नूडल्स" },
@@ -16,6 +17,25 @@ import AddToOrderButton from "./AddToOrderButton";
  *    ],
  *  }
  */
+
+// Elegant color set standing in for the reference photo's colored bars,
+// kept in the same champagne/luxury tonal family (deep, muted, not neon).
+const HEADER_COLORS = [
+  "linear-gradient(135deg, #C9A84C, #B8923A)", // gold (brand)
+  "linear-gradient(135deg, #3F7A5E, #2F6B4F)", // bottle green
+  "linear-gradient(135deg, #C1552C, #A6431F)", // terracotta
+  "linear-gradient(135deg, #6B3B58, #55293F)", // deep plum
+  "linear-gradient(135deg, #355070, #29405A)", // slate blue
+  "linear-gradient(135deg, #5B3A29, #47281B)", // espresso
+];
+
+// Deterministic color per category, based on its label, so a given
+// category always gets the same header color across renders/filters.
+function colorForLabel(label) {
+  let hash = 0;
+  for (let i = 0; i < label.length; i++) hash = (hash * 31 + label.charCodeAt(i)) >>> 0;
+  return HEADER_COLORS[hash % HEADER_COLORS.length];
+}
 
 // price strings look like "₹140" or "₹100/₹120" — pull the first number out.
 function parsePrice(priceStr) {
@@ -34,15 +54,11 @@ function slugify(name) {
 export default function MenuCategoryCard({ category }) {
   if (!category) return null;
   const { icon, label, items } = category;
+  const headerBg = colorForLabel(label.en);
 
   return (
-    <div className={`${styles.card} ${styles.visible}`}>
-      <span className={`${styles.cardCorner} ${styles.topLeft}`} />
-      <span className={`${styles.cardCorner} ${styles.topRight}`} />
-      <span className={`${styles.cardCorner} ${styles.bottomLeft}`} />
-      <span className={`${styles.cardCorner} ${styles.bottomRight}`} />
-
-      <div className={styles.cardHeader}>
+    <div className={styles.card}>
+      <div className={styles.cardHeader} style={{ background: headerBg }}>
         <div className={styles.cardHeaderLeft}>
           <span className={styles.cardIcon}>{icon}</span>
           <div>
@@ -52,31 +68,32 @@ export default function MenuCategoryCard({ category }) {
         </div>
         <span className={styles.cardCount}>{items.length} ITEMS</span>
       </div>
-      <div className={styles.cardRule} />
 
-      {items.map((item, idx) => {
-        const cartItem = {
-          id: slugify(item.name.en),
-          nameEn: item.name.en,
-          price: parsePrice(item.price),
-        };
+      <div className={styles.cardBody}>
+        {items.map((item, idx) => {
+          const cartItem = {
+            id: slugify(item.name.en),
+            nameEn: item.name.en,
+            price: parsePrice(item.price),
+          };
 
-        return (
-          <div className={styles.item} key={idx}>
-            <div className={styles.itemLeft}>
-              <span className={styles.itemDot} />
-              <div>
-                <span className={styles.itemName}>{item.name.en}</span>
-                <p className={styles.itemNameHi}>{item.name.hi}</p>
+          return (
+            <div className={styles.item} key={idx}>
+              <div className={styles.itemLeft}>
+                <span className={styles.itemDot} />
+                <div>
+                  <span className={styles.itemName}>{item.name.en}</span>
+                  <p className={styles.itemNameHi}>{item.name.hi}</p>
+                </div>
+              </div>
+              <div className={styles.itemRight}>
+                <span className={styles.itemPrice}>{item.price}</span>
+                <AddToOrderButton item={cartItem} />
               </div>
             </div>
-            <div className={styles.itemRight}>
-              <span className={styles.itemPrice}>{item.price}</span>
-              <AddToOrderButton item={cartItem} />
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
